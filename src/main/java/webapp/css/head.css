@@ -1,0 +1,19 @@
+.top{
+    height: 100px;
+    border-radius: 1%;
+    background-color: aqua;
+}
+
+.title{
+    position: absolute;
+    margin-left: 10%;
+    font-size: 50px;
+    font-family: "Agency FB";
+}
+
+.welcome{
+    margin-top: 1%;
+    position: absolute;
+    margin-left: 85%;
+    font-size: 25px;
+}
