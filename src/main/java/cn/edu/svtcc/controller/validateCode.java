@@ -1,6 +1,5 @@
 package cn.edu.svtcc.controller;
 
-import com.mysql.cj.Session;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.imageio.ImageIO;
@@ -17,7 +16,7 @@ import java.util.*;
      *
      * @author
      */
-@RequestMapping("validateCode")
+
    public class validateCode {
         // 图片的宽度。
         private int width = 160;
@@ -409,7 +408,7 @@ import java.util.*;
             ImageIO.write(buffImg, "png", sos);
             sos.close();
         }
-
+    @RequestMapping("validateCode")
         public BufferedImage getBuffImg() {
             return buffImg;
         }
