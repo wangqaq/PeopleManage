@@ -18,9 +18,9 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/user/index"/>
-            <mvc:exclude-mapping path="/user/showRegister"/>
-            <mvc:exclude-mapping path="/user/register"/>
+            <mvc:exclude-mapping path="/employee/index"/>
+            <mvc:exclude-mapping path="/employee/showRegister"/>
+            <mvc:exclude-mapping path="/employee/register"/>
             <mvc:exclude-mapping path="/css/**"/>
             <mvc:exclude-mapping path="/js/**"/>
             <mvc:exclude-mapping path="/imgs/**"/>

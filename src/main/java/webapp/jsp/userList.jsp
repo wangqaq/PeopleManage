@@ -9,16 +9,16 @@
 <script type="text/javascript">
 //显示添加用户界面
 function add(){
-	window.location.href = "<%=basePath%>/user/showAddUser";
+	window.location.href = "<%=basePath%>/employee/showAddUser";
 }
 //显示编辑用户界面
 function edit(userId){
-	window.location.href = "<%=basePath%>/user/showEditUser?userId="+userId;
+	window.location.href = "<%=basePath%>/employee/showEditUser?userId="+userId;
 }
 //删除用户
 function deleteUser(userId,userName,index){
 	$.ajax({
-		url:"<%=basePath%>/user/deleteUser",
+		url:"<%=basePath%>/employee/deleteUser",
 		type:"post",
 		contentType:"application/json",
 		datatype:"json",
@@ -27,8 +27,8 @@ function deleteUser(userId,userName,index){
 			if(data="success"){
 
 				alert("删除用户["+userName+"]成功");
-				$("#user"+index).hide();
-				window.location.href="<%=basePath%>/user/list"
+				$("#employee"+index).hide();
+				window.location.href="<%=basePath%>/employee/list"
 			}else{
 				alert(data);
 			}
@@ -45,10 +45,10 @@ function find(){
 		alert("请正确输入用户姓名");
 		return false;
 	}
-	window.location.href = "<%=basePath%>/user/find?userName="+findKey;
+	window.location.href = "<%=basePath%>/employee/find?userName="+findKey;
 }
 function refresh() {
-	window.location.href="<%=basePath%>/user/list";
+	window.location.href="<%=basePath%>/employee/list";
 }
 
 function isNull( str ){
@@ -75,7 +75,7 @@ function isNull( str ){
 		<td>姓名</td><td>性别</td><td>年龄</td><td>所属部门</td><td>操作</td>
 	</tr>
 	<c:forEach items="${list}" var="u"  varStatus="status">
-	    <tr height="40px" id="user${status.index }"><td>${u.userName }</td>
+	    <tr height="40px" id="employee${status.index }"><td>${u.userName }</td>
 		    <c:if test="${u.sex=='男' || empty u.sex}"> <td style="color:blue">${u.sex }</td></c:if>
 		    <c:if test="${u.sex=='女'}"> <td style="color:red">${u.sex }</td></c:if>   
 		    <td>${u.age }</td>

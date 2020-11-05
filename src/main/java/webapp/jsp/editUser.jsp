@@ -8,7 +8,7 @@
 <script type="text/javascript">
 //显示用户列表页面
 function toList(){
-	window.location.href = "<%=basePath%>/user/list";
+	window.location.href = "<%=basePath%>/employee/list";
 }
 //提交表单
 function submitForm(){
@@ -32,7 +32,7 @@ function submitForm(){
 		return false;
 	}
 	$.ajax({
-		url:"<%=basePath%>/user/edit",
+		url:"<%=basePath%>/employee/edit",
 		type:"post",
 		contentType:"application/json", 
 		datatype:"json",
@@ -40,7 +40,7 @@ function submitForm(){
 		success:function(data){
 			if(data="success"){
 				alert("修改用户信息成功");
-				window.location.href = "<%=basePath%>/user/list";
+				window.location.href = "<%=basePath%>/employee/list";
 			}else{
 				alert(data);
 			}
@@ -60,33 +60,33 @@ function submitForm(){
 
 <form action="add" method="post">
 <table align="center" style="margin-top: 20px;font-family:微软雅黑;font-size: large; ">
-	<tr><td height="50px">用户姓名：</td><td><input type="text" id="userName" name="userName" value="${user.userName}"/></td></tr>
+	<tr><td height="50px">用户姓名：</td><td><input type="text" id="userName" name="userName" value="${employee.userName}"/></td></tr>
 	<tr>
 		<td height="50px">性别：</td>
 		<td>
-		<input type="radio" name="sex" <c:if test="${user.sex=='男'}">checked="checked"</c:if> value="男"  style="margin-right: 10px">男   
-		<input type="radio" name="sex" <c:if test="${user.sex=='女'}">checked="checked"</c:if> value="女" style="margin-left: 20px;margin-right: 10px" >女
+		<input type="radio" name="sex" <c:if test="${employee.sex=='男'}">checked="checked"</c:if> value="男"  style="margin-right: 10px">男
+		<input type="radio" name="sex" <c:if test="${employee.sex=='女'}">checked="checked"</c:if> value="女" style="margin-left: 20px;margin-right: 10px" >女
 		</td>
 	</tr>
-	<tr><td height="50px">年龄：</td><td><input type="text" id="age" name="age" value="${user.age}" onkeyup="this.value=this.value.replace(/\D/g, '')"/></td></tr>
+	<tr><td height="50px">年龄：</td><td><input type="text" id="age" name="age" value="${employee.age}" onkeyup="this.value=this.value.replace(/\D/g, '')"/></td></tr>
 	<tr>
 		<td height="50px">所属部门：</td>
 		<td>
 		<select id="department" name="department">  
-		    <option value="市场部" <c:if test="${user.department=='市场部'}">selected="selected"</c:if>>市场部</option>  
-		    <option value="客服部" <c:if test="${user.department=='客服部'}">selected="selected"</c:if>>客服部</option>  
-		    <option value="财务部" <c:if test="${user.department=='财务部'}">selected="selected"</c:if>>财务部</option> 
-			<option value="运营部" <c:if test="${user.department=='运营部'}">selected="selected"</c:if>>运营部</option> 
-		    <option value="研发技术部" <c:if test="${user.department=='研发技术部'}">selected="selected"</c:if>>研发技术部</option>  
-		    <option value="移动研发部" <c:if test="${user.department=='移动研发部'}">selected="selected"</c:if>>移动研发部</option>  
-		    <option value="测试运维部" <c:if test="${user.department=='测试运维部'}">selected="selected"</c:if>>测试运维部</option>  
-		    <option value="数据技术部" <c:if test="${user.department=='数据技术部'}">selected="selected"</c:if>>数据技术部</option>  
-		    <option value="信息技术部" <c:if test="${user.department=='信息技术部'}">selected="selected"</c:if>>信息技术部</option>  
+		    <option value="市场部" <c:if test="${employee.department=='市场部'}">selected="selected"</c:if>>市场部</option>
+		    <option value="客服部" <c:if test="${employee.department=='客服部'}">selected="selected"</c:if>>客服部</option>
+		    <option value="财务部" <c:if test="${employee.department=='财务部'}">selected="selected"</c:if>>财务部</option>
+			<option value="运营部" <c:if test="${employee.department=='运营部'}">selected="selected"</c:if>>运营部</option>
+		    <option value="研发技术部" <c:if test="${employee.department=='研发技术部'}">selected="selected"</c:if>>研发技术部</option>
+		    <option value="移动研发部" <c:if test="${employee.department=='移动研发部'}">selected="selected"</c:if>>移动研发部</option>
+		    <option value="测试运维部" <c:if test="${employee.department=='测试运维部'}">selected="selected"</c:if>>测试运维部</option>
+		    <option value="数据技术部" <c:if test="${employee.department=='数据技术部'}">selected="selected"</c:if>>数据技术部</option>
+		    <option value="信息技术部" <c:if test="${employee.department=='信息技术部'}">selected="selected"</c:if>>信息技术部</option>
 		</select>  
 		</td>
 	</tr>
 	<tr><td height="50px" colspan="2">
-	<input type="hidden" value="${user.userId}" id="userId"/>
+	<input type="hidden" value="${employee.userId}" id="userId"/>
 	<input type="button" value="确定修改" onclick="submitForm();" />
 	<input type="button" value="返回" onclick="toList();" style="margin-left: 20px"/>
 	</td></tr>

@@ -15,12 +15,12 @@
     <link href="${pageContext.request.contextPath}/css/head.css" type="text/css" rel="stylesheet">
     <script>
         function register() {
-            window.location.href="<%=basePath%>user/showRegister"
+            window.location.href="<%=basePath%>employee/showRegister"
         }
         function loginOut(){
-            window.location.href="<%=basePath%>user/loginOut"
+            window.location.href="<%=basePath%>employee/loginOut"
             $.ajax({
-                url:"<%=basePath%>/user/loginOut",
+                url:"<%=basePath%>/employee/loginOut",
                 type:"get",
                 contentType:"application/json",
                 datatype:"json",
@@ -43,9 +43,9 @@
     <div class="top">
         <br>
         <div class="title">人员管理系统</div>
-        <p class="welcome">欢迎 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:if test="${sessionScope.user==null}">请先 <a href="<%=basePath%>user/index">登录</a>&nbsp;<input type="button"style="background: aliceblue; border: 0px;border-radius: 20px; " value="注册" onclick="register()"></c:if>
-            ${sessionScope.user}&nbsp;&nbsp;&nbsp;&nbsp;
-            <c:if test="${sessionScope.user!=null}"><input type="button" value="退出" onclick="loginOut()" style="background: aliceblue; border: 0px;border-radius: 20px;"></c:if>
+        <p class="welcome">欢迎 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:if test="${sessionScope.employee==null}">请先 <a href="<%=basePath%>employee/index">登录</a>&nbsp;<input type="button"style="background: aliceblue; border: 0px;border-radius: 20px; " value="注册" onclick="register()"></c:if>
+            ${sessionScope.employee}&nbsp;&nbsp;&nbsp;&nbsp;
+            <c:if test="${sessionScope.employee!=null}"><input type="button" value="退出" onclick="loginOut()" style="background: aliceblue; border: 0px;border-radius: 20px;"></c:if>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>

@@ -9,7 +9,7 @@
 	<link type="text/css" href="${pageContext.request.contextPath}/css/addUser.css" rel="stylesheet">
 	<script>
 		function toList(){
-			window.location.href = "<%=basePath%>/user/list";
+			window.location.href = "<%=basePath%>/employee/list";
 		}
 		function submitForm(){
 			//参数校验
@@ -26,7 +26,7 @@
 				return false;
 			}
 			$.ajax({
-				url:"<%=basePath%>user/add",
+				url:"<%=basePath%>employee/add",
 				type:"post",
 				contentType:"application/json",
 				datatype:"json",
@@ -34,7 +34,7 @@
 				success:function(data){
 					if(data==="success"){
 						alert("添加用户成功");
-						window.location.href="<%=basePath%>/user/list"
+						window.location.href="<%=basePath%>/employee/list"
 					}else{
 						alert(data);
 					}

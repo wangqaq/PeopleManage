@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css" type="text/css">
     <script src="${pageContext.request.contextPath}/js/index.js" type="text/javascript"></script>
     <script>
+        function changevalidateCode(){
+            window.location.href=<%=basePath%>/validateCode+;
+        }
         function submitForm(){
             var userName = $("#userName").val();
             var password = $("#password").val();
@@ -26,7 +29,7 @@
                 return false;
             }
             $.ajax({
-                url:"<%=basePath%>/user/login",
+                url:"<%=basePath%>/employee/login",
                 contentType:"application/json",
                 datatype:"json",
                 method:"post",
@@ -49,7 +52,7 @@
     </script>
 </head>
 <body style="background-image: url(${pageContext.request.contextPath}/imgs/P1010122.JPG);background-repeat: no-repeat;background-size: cover;background-position: center center;">
-<form action="/user/login" method="post">
+<form action="/employee/login" method="post">
     <div align="center">
         <div align="center" style="margin: 20px;font-family: 微软雅黑;font-size: xx-large;"> 登录 </div>
         <table align="center" style="margin-top: 20px;font-family:微软雅黑;font-size: large; border: 0;margin-top: 10%;" class="form" >
@@ -58,6 +61,7 @@
                 <td> <input type="text" id="userName" name="userName"style="border-top: 0; border-left: 0;border-right: 0;border-bottom: 1px solid yellowgreen; background: unset"></td>
             </tr>
             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密码：</td><td><input type="password" id="password" name="password"style="border-top: 0; border-left: 0;border-right: 0;border-bottom: 1px solid yellowgreen;background: unset"></td></tr>
+            <tr><td>验证码</td><td><img src="<%=basePath%>/validateCode" alt="验证码" onclick="changevalidateCode()+Math.random()"></td></tr>
             <tr><td></td><td><input type="button" value="登录" onclick="submitForm()"style=" color: yellowgreen;border: 0px ;background: blueviolet; margin-left: 70%;border-radius: 15px; font-size: 30px"></td></tr>
         </table>
     </div>

@@ -1,7 +1,9 @@
 package cn.edu.svtcc.interceptor;
 
+import lombok.var;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import redis.clients.jedis.Jedis;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +21,7 @@ public class loginInterceptor implements HandlerInterceptor{
     String url = request.getRequestURI();
     if (url.indexOf("user/login")>=0){
       return true;
+
     }
     HttpSession session = request.getSession();
     String user = (String) session.getAttribute("user");

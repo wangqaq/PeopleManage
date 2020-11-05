@@ -13,7 +13,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class User {
+public class employee {
   private long userId;
 
   private String userName;
