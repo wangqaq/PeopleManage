@@ -1,6 +1,5 @@
 package cn.edu.svtcc.service.impl;
 
-import cn.edu.svtcc.dao.EmployeeDao;
 import cn.edu.svtcc.dao.employeeSalaryDao;
 import cn.edu.svtcc.pojo.employeeSalary;
 import cn.edu.svtcc.service.employeeSalaryService;
@@ -17,18 +16,18 @@ public class employeeSalaryServiceImpl implements employeeSalaryService {
         this.dao = dao;
     }
     public employeeSalary findEmployeeSalary(long epyid) {
-        return ;
+        return dao.findEmployeeSalary(epyid);
     }
 
     public employeeSalary insertEmployeeSalary(employeeSalary employeeSalary) {
-        return null;
+        return dao.insertEmployeeSalary(employeeSalary);
     }
 
     public employeeSalary changeEmployeeSalary(employeeSalary employeeSalary) {
-        return null;
+        return dao.changeEmployeeSalary(employeeSalary);
     }
 
     public employeeSalary totalEmployeeSalary(employeeSalary employeeSalary) {
-        return null;
+        return dao.totalEmployeeSalary(employeeSalary);
     }
 }
