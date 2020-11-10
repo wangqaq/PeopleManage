@@ -1,11 +1,13 @@
 package cn.edu.svtcc.dao;
 
 import cn.edu.svtcc.pojo.employeeSalary;
+import org.apache.ibatis.annotations.Insert;
 
 public interface employeeSalaryDao {
     employeeSalary findEmployeeSalary(long epyid);
-    employeeSalary insertEmployeeSalary(employeeSalary employeeSalary);
-    employeeSalary changeEmployeeSalary(employeeSalary employeeSalary);
+    @Insert("")
+    int insertEmployeeSalary(employeeSalary employeeSalary);
+    int changeEmployeeSalary(employeeSalary employeeSalary);
     employeeSalary totalEmployeeSalary(employeeSalary employeeSalary);
 
 }

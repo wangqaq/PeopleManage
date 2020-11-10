@@ -19,11 +19,11 @@ public class employeeSalaryServiceImpl implements employeeSalaryService {
         return dao.findEmployeeSalary(epyid);
     }
 
-    public employeeSalary insertEmployeeSalary(employeeSalary employeeSalary) {
+    public int insertEmployeeSalary(employeeSalary employeeSalary) {
         return dao.insertEmployeeSalary(employeeSalary);
     }
 
-    public employeeSalary changeEmployeeSalary(employeeSalary employeeSalary) {
+    public int changeEmployeeSalary(employeeSalary employeeSalary) {
         return dao.changeEmployeeSalary(employeeSalary);
     }
 

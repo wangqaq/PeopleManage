@@ -39,6 +39,7 @@ public class EmployeeController {
    */
   @RequestMapping(value="/list",method=RequestMethod.GET)
   public String list(Model model,HttpServletRequest request) {
+    
       List<employee> list = service.getList();
       model.addAttribute("list", list);
       return "userList";
