@@ -6,6 +6,8 @@ import cn.edu.svtcc.service.employeeSalaryService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service("employeeSalaryService")
 @Transactional(rollbackFor = Exception.class)
@@ -27,7 +29,7 @@ public class employeeSalaryServiceImpl implements employeeSalaryService {
         return dao.changeEmployeeSalary(employeeSalary);
     }
 
-    public employeeSalary totalEmployeeSalary(employeeSalary employeeSalary) {
-        return dao.totalEmployeeSalary(employeeSalary);
+    public List<employeeSalary> totalEmployeeSalary() {
+        return dao.totalEmployeeSalary();
     }
 }

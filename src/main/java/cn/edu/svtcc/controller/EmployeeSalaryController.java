@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -31,14 +32,30 @@ public class EmployeeSalaryController {
         return "employeeSalary";
     }
     @RequestMapping(value = "insertEmployeeSalary",method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
-        public String insertEmployeeSalary(HttpServletRequest request,@RequestBody String json){
+        public String insertEmployeeSalary(HttpServletRequest request,@RequestBody String json) {
         employeeSalary employeeSalary = JSON.parseObject(json, employeeSalary.class);
         int i = service.insertEmployeeSalary(employeeSalary);
-        if (i>0){
+        if (i > 0) {
             return "Success";
-        }
-        else{
+        } else {
             return "False";
         }
+    }
+
+        @RequestMapping(value = "changeEmployeeSalary",method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
+        public String changeEmployeeSalary(HttpServletRequest request,@RequestBody employeeSalary employeeSalary){
+            if(service.changeEmployeeSalary(employeeSalary)==1){
+                return "Success";
+            }
+            else {
+                return "False";
+            }
+        }
+
+    @RequestMapping(value = "totalEmployeeSalary",method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
+        public String totalEmployeeSalary(HttpServletRequest request,Model model){
+            List<employeeSalary> employeeSalaryList=service.totalEmployeeSalary();
+            model.addAttribute("list",employeeSalaryList);
+            return "totalEmployeeSalary";
         }
 }
