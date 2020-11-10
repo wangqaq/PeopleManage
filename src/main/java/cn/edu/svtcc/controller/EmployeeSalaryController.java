@@ -25,13 +25,13 @@ public class EmployeeSalaryController {
     private employeeSalaryService service;
 
 
-    @RequestMapping(value = "showEmployeeSalary",method = RequestMethod.POST)
+    @RequestMapping(value = "show",method = RequestMethod.POST)
     public String showEmployeeSalary(Model model, HttpServletRequest request, @RequestBody Long epyid){
         employeeSalary employeeSalary = service.findEmployeeSalary(epyid);
         model.addAttribute("employeeSalary",employeeSalary);
         return "employeeSalary";
     }
-    @RequestMapping(value = "insertEmployeeSalary",method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
+    @RequestMapping(value = "insert",method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
         public String insertEmployeeSalary(HttpServletRequest request,@RequestBody String json) {
         employeeSalary employeeSalary = JSON.parseObject(json, employeeSalary.class);
         int i = service.insertEmployeeSalary(employeeSalary);
@@ -42,7 +42,7 @@ public class EmployeeSalaryController {
         }
     }
 
-        @RequestMapping(value = "changeEmployeeSalary",method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
+        @RequestMapping(value = "change",method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
         public String changeEmployeeSalary(HttpServletRequest request,@RequestBody employeeSalary employeeSalary){
             if(service.changeEmployeeSalary(employeeSalary)==1){
                 return "Success";
@@ -52,10 +52,11 @@ public class EmployeeSalaryController {
             }
         }
 
-    @RequestMapping(value = "totalEmployeeSalary",method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
+    @RequestMapping(value = "total",method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
         public String totalEmployeeSalary(HttpServletRequest request,Model model){
             List<employeeSalary> employeeSalaryList=service.totalEmployeeSalary();
             model.addAttribute("list",employeeSalaryList);
             return "totalEmployeeSalary";
         }
+        @RequestMapping(value = "")
 }
